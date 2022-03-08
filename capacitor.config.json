@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Webdulich",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}

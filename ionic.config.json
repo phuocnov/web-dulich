@@ -1,0 +1,7 @@
+{
+  "name": "Webdulich",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
