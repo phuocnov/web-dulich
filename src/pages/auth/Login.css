@@ -1,0 +1,21 @@
+.ctn {
+  /* background-color: rgb(251, 144, 144); */
+  margin: auto;
+  width: 80%;
+  height: 40%;
+  padding: 10px;
+  position: relative;
+}
+.title {
+  color: #3880ff;
+  font-size: 30px;
+  font-weight: 700;
+}
+.btn-ctn {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

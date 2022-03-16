@@ -1,8 +1,9 @@
 import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
-import Menu from './components/Menu';
 import Page from './pages/Page';
+import Login from './pages/auth/Login';
+import store from './redux/store';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -22,26 +23,36 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import { Provider } from 'react-redux';
+import SignupPage from './pages/auth/Signup';
 
 setupIonicReact();
 
 const App: React.FC = () => {
   return (
-    <IonApp>
+    <Provider store={store}>
+      <IonApp>
       <IonReactRouter>
         <IonSplitPane contentId="main">
-          <Menu />
+          {/* <Menu /> */}
           <IonRouterOutlet id="main">
             <Route path="/" exact={true}>
-              <Redirect to="/page/Inbox" />
+              <Page></Page>
             </Route>
-            <Route path="/page/:name" exact={true}>
-              <Page />
+            {/* <Route path="/page/:name" exact={true}>
+              <Page/>
+            </Route> */}
+            <Route path="/login" exact={true}>
+              <Login/>
+            </Route>
+            <Route path="/signup" exact={true}>
+              <SignupPage/>
             </Route>
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
     </IonApp>
+    </Provider>
   );
 };
 
