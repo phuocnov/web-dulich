@@ -4,6 +4,7 @@ import { Redirect, Route } from 'react-router-dom';
 import Page from './pages/Page';
 import Login from './pages/auth/Login';
 import store from './redux/store';
+import { actions, reducers } from './redux'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -23,8 +24,9 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
 import SignupPage from './pages/auth/Signup';
+import DetailPage from './pages/DetailTour';
 
 setupIonicReact();
 
@@ -47,6 +49,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/signup" exact={true}>
               <SignupPage/>
+            </Route>
+            <Route path="/details/:id">
+              <DetailPage></DetailPage>
             </Route>
           </IonRouterOutlet>
         </IonSplitPane>

@@ -25,7 +25,9 @@ import { authApi } from "../../api";
 import "./Login.css";
 import storage from "../../helper/storage";
 import { useDispatch } from "react-redux";
-import { actions } from "../../redux";
+import { actions, reducers } from "../../redux";
+import store from "../../redux/store";
+import { push } from "ionicons/icons";
 
 const Login = () => {
   const {
@@ -41,7 +43,7 @@ const Login = () => {
 
   async function loginSuccess(token: string) {
     storage.set("token", token);
-    dispatch(actions.auth.login());
+    dispatch(actions.auth.login(token));
   }
 
   async function login(params: ILogin) {
@@ -49,9 +51,9 @@ const Login = () => {
       const data:any  = await authApi.login(params);
       const {accessToken} = data
       if (accessToken) {
-        loginSuccess(accessToken);
+        loginSuccess(accessToken)
       } else {
-        console.log("no token");
+        console.log("no token")
       }
     } catch (error) {
       throw error;
@@ -61,10 +63,11 @@ const Login = () => {
   return (
     <IonReactRouter>
       <IonPage>
+
         <form
           onSubmit={handleSubmit((data: any) => {
             login(data)
-            router.push("/");
+            if(store.getState().auth.isLogin === true) router.push("/")
           })}
         >
           <IonLabel>Username or email</IonLabel>
@@ -72,6 +75,9 @@ const Login = () => {
           <IonLabel>Password</IonLabel>
           <IonInput type="password" {...register("password")} />
           <IonButton type="submit">Login</IonButton>
+          <IonText onClick={()=>{
+            router.push("/signup")
+          }}>Do not have an account? signup here</IonText>
         </form>
       </IonPage>
     </IonReactRouter>

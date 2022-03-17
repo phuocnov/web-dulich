@@ -2,7 +2,8 @@ import { configureStore } from '@reduxjs/toolkit'
 import { reducers } from './index'
 
 const rootReducer = {
-    auth: reducers.authReducer
+    auth: reducers.authReducer,
+    booking: reducers.bookingReducer
 }
 
 const store = configureStore({
