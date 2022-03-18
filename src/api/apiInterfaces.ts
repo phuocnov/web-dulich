@@ -9,3 +9,8 @@ export interface ISignUp {
     username: string,
     password: string
 }
+
+export interface IBooking {
+    userID: number 
+    tourID: number
+}

@@ -7,13 +7,13 @@ const slice = createSlice({
         authkey: ''
     },
     reducers: {
-        login: state => {
+        login: (state, action) => {
+            const { auth } = action.payload
             state.isLogin = true
-            state.authkey = storage.default.get('token')
+            state.authkey = auth
         },
         logout: state => {
             state.isLogin = false
-            storage.default.clear()
         }
     }
 })

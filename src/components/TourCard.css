@@ -1,0 +1,8 @@
+.container{
+    width: 300px;
+    height: 400px;
+    background-color: beige;
+}
+.col-1{
+    color: red;
+}

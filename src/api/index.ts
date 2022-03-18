@@ -1,3 +1,3 @@
 import authApi from './auth'
-
-export {authApi}
+import tourApi from './tour'
+export {authApi, tourApi}

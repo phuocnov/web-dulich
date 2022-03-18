@@ -3,6 +3,7 @@ import {
   IonInput,
   IonLabel,
   IonPage,
+  IonText,
   useIonRouter,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
@@ -11,6 +12,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { authApi } from "../../api";
 import { ISignUp } from "../../api/apiInterfaces";
+import './Signup.css'
 
 const SignupPage = () => {
   const {
@@ -51,7 +53,9 @@ async function signup(params:ISignUp) {
           <IonLabel>Email</IonLabel>
           <IonInput type="text" {...register("email")} />
           <IonButton type="submit">Login</IonButton>
-          
+          <IonText onClick={()=>{
+            router.goBack()
+          }}>Already have an account? sign in</IonText>
         </form>
       </IonPage>
     </IonReactRouter>

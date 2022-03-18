@@ -1,11 +1,14 @@
 import { authAction, authReducer } from './auth';
+import { bookingAction, bookingReducer } from './booking';
 
 const actions = {
-    auth: authAction
+    auth: authAction,
+    booking: bookingAction
 }
 
 const reducers = {
-    authReducer
+    authReducer,
+    bookingReducer
 }
 
 export { actions, reducers }
