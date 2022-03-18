@@ -43,14 +43,14 @@ const DetailPage = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonTitle>{tour.name}</IonTitle>
+        <IonTitle>{tour? tour.name : ""}</IonTitle>
       </IonHeader>
 
       <IonContent>
         <IonImg src="https://dulichviet.com.vn/images/bandidau/CH%C3%82U%20%C3%81/du-lich-indonesia.png" />
-        <IonText>{tour.tour}</IonText>
-        <IonText>{tour.schedule}</IonText>
-        <IonText>{tour.shortDescription}</IonText>
+        <IonText>{tour? tour.tour : ""}</IonText>
+        <IonText>{tour? tour.schedule: ""}</IonText>
+        <IonText>{tour? tour.shortDescription: ""}</IonText>
       </IonContent>
     </IonPage>
   );

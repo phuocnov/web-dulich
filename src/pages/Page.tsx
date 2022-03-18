@@ -22,10 +22,10 @@ import { useParams } from "react-router";
 import { Router } from "workbox-routing";
 import { tourApi } from "../api";
 import tour from "../api/tour";
-import ExploreContainer from "../components/ExploreContainer";
 import store from "../redux/store";
 import { actions, reducers } from "../redux";
 import "./Page.css";
+import TourCard from "../components/TourCard";
 
 const Page: React.FC = () => {
   const { name } = useParams<{ name: string }>();
@@ -71,7 +71,7 @@ const Page: React.FC = () => {
               onClick={() => {
                 dispatch(actions.auth.logout);
                 localStorage.clear();
-                router.push("/login")
+                router.push("/login");
               }}
             >
               Logout
@@ -92,22 +92,15 @@ const Page: React.FC = () => {
         {tours.map((tour: any) => {
           // console.log(tour);
           return (
-            <IonCard key={tour.id}>
-              <IonImg src="./" />
-              <IonCardHeader>{tour.name}</IonCardHeader>
-              <IonCardSubtitle>{tour.schedule}</IonCardSubtitle>
-              <IonCardSubtitle>
-                {tour.startDate + "-" + tour.endDate}
-              </IonCardSubtitle>
-              <IonCardContent>{tour.shortDescription}</IonCardContent>
-              <IonButton
-                onClick={() => {
-                  router.push(`details/${tour.id}`);
-                }}
-              >
-                Chi tiết
-              </IonButton>
-            </IonCard>
+            <TourCard
+              id={tour.id}
+              name={tour.name}
+              tour={tour.tour}
+              startDate={tour.startDate}
+              endDate={tour.endDate}
+              cost={tour.cost}
+              key={tour.id}
+            />
           );
         })}
       </IonContent>
