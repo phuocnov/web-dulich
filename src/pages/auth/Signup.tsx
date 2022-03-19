@@ -53,9 +53,10 @@ async function signup(params:ISignUp) {
           <IonLabel>Email</IonLabel>
           <IonInput type="text" {...register("email")} />
           <IonButton type="submit">Login</IonButton>
+          <span>Already have an account?</span>
           <IonText onClick={()=>{
             router.goBack()
-          }}>Already have an account? sign in</IonText>
+          }}> sign in</IonText>
         </form>
       </IonPage>
     </IonReactRouter>

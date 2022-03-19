@@ -1,0 +1,8 @@
+ion-text{
+    cursor: pointer;
+}
+ion-input[name="name"],ion-input[name="username"],ion-input[name="password"],ion-input[name="email"]{
+    background-color:#fff;
+  border-radius:2px;
+  margin-bottom: 10px;
+}

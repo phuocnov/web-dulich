@@ -75,9 +75,10 @@ const Login = () => {
           <IonLabel>Password</IonLabel>
           <IonInput type="password" {...register("password")} />
           <IonButton type="submit">Login</IonButton>
+          <span>Do not have an account?</span>
           <IonText onClick={()=>{
             router.push("/signup")
-          }}>Do not have an account? signup here</IonText>
+          }}> signup here</IonText>
         </form>
       </IonPage>
     </IonReactRouter>
