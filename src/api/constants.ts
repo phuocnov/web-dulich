@@ -6,6 +6,10 @@ const API_CONSTANTS = {
     TOUR: {
         GET: 'tour',
         GET_BYID:(id: number) => `tour/${id}` 
+    },
+    BOOKING: {
+        BOOK: 'booking',
+        GET_ALL_BOOKING: 'booking'
     }
 }
 

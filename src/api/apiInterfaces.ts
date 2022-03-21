@@ -13,4 +13,5 @@ export interface ISignUp {
 export interface IBooking {
     userID: number 
     tourID: number
+    phoneNumber: string
 }
