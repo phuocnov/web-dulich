@@ -27,6 +27,7 @@ interface CardProps {
 const TourCard = (props: CardProps) => {
   const router = useIonRouter();
   return (
+    <div>
     <IonCard className="container">
       <IonImg src="https://dulichviet.com.vn/images/bandidau/CH%C3%82U%20%C3%81/du-lich-indonesia.png" />
       <IonCardTitle>{props.name}</IonCardTitle>
@@ -48,6 +49,7 @@ const TourCard = (props: CardProps) => {
         </IonCol>
       </IonGrid>
     </IonCard>
+    </div>
   );
 };
 
