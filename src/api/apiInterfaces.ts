@@ -13,5 +13,20 @@ export interface ISignUp {
 export interface IBooking {
     userID: number 
     tourID: number
-    phoneNumber: string
+}
+
+export interface IDetailsTour {
+    schedule: string
+    service: string
+    note: string
+}
+export interface ICreateTour {
+    name: string
+    tour: string
+    schedule: string
+    startDate: string
+    endDate: string
+    cost: number
+    shortDescription: string
+    details: IDetailsTour
 }

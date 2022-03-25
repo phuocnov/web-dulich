@@ -65,9 +65,11 @@ const Login = () => {
       <IonPage>
 
         <form
+          className="form"
           onSubmit={handleSubmit((data: any) => {
-            login(data)
-            if(store.getState().auth.isLogin === true) router.push("/")
+            login(data).then(()=>{
+              if(store.getState().auth.isLogin === true) router.push("/page")
+            })
           })}
         >
           <IonLabel>Username or email</IonLabel>
@@ -75,9 +77,10 @@ const Login = () => {
           <IonLabel>Password</IonLabel>
           <IonInput type="password" {...register("password")} />
           <IonButton type="submit">Login</IonButton>
+          <span>Do not have an account?</span>
           <IonText onClick={()=>{
             router.push("/signup")
-          }}>Do not have an account? signup here</IonText>
+          }}> signup here</IonText>
         </form>
       </IonPage>
     </IonReactRouter>

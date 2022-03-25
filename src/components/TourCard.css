@@ -1,8 +1,12 @@
-.container{
-    width: 300px;
-    height: 400px;
-    background-color: beige;
+.container {
+  width: 30%;
+  height: 400px;
+  background-color: beige;
 }
-.col-1{
-    color: red;
+.card-image {
+    width: 300px;
+    height: 200px;
+}
+.col-1 {
+  color: red;
 }

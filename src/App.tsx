@@ -27,6 +27,7 @@ import './theme/variables.css';
 import { Provider, useDispatch } from 'react-redux';
 import SignupPage from './pages/auth/Signup';
 import DetailPage from './pages/DetailTour';
+import AdminSite from './pages/AdminSite';
 
 setupIonicReact();
 
@@ -39,11 +40,11 @@ const App: React.FC = () => {
           {/* <Menu /> */}
           <IonRouterOutlet id="main">
             <Route path="/" exact={true}>
-              <Page></Page>
+              <Login></Login>
             </Route>
-            {/* <Route path="/page/:name" exact={true}>
+            <Route path="/page" exact={true}>
               <Page/>
-            </Route> */}
+            </Route>
             <Route path="/login" exact={true}>
               <Login/>
             </Route>
@@ -52,6 +53,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/details/:id">
               <DetailPage></DetailPage>
+            </Route>
+            <Route path="/admin-site">
+              <AdminSite></AdminSite>
             </Route>
           </IonRouterOutlet>
         </IonSplitPane>

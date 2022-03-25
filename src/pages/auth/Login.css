@@ -19,3 +19,16 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+ion-input[name="usernameOrEmail"],ion-input[name="password"]{
+  background-color:#fff;
+  border-radius:2px;
+  margin-bottom: 10px;
+}
+
+.form{
+    margin: auto !important;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #80808071;
+    box-shadow: 1px 1px 5px 4px #00000024;
+}
