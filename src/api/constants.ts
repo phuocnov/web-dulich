@@ -10,7 +10,8 @@ const API_CONSTANTS = {
         },
         CUSTOMER: {
             INFO: 'customer/user-info'
-        }
+        },
+        BOOKING: 'booking'
     },
     ADMIN: {
         CUSTOMER: {

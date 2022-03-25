@@ -1,3 +1,4 @@
 import authApi from './auth'
 import tourApi from './tour'
-export {authApi, tourApi}
+import bookingAPI from './booking'
+export {authApi, tourApi, bookingAPI}

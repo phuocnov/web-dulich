@@ -114,13 +114,8 @@ const Page: React.FC = () => {
             // console.log(tour);
             return (
               <TourCard
-                id={tour.id}
-                name={tour.name}
-                tour={tour.tour}
-                startDate={tour.startDate}
-                endDate={tour.endDate}
-                cost={tour.cost}
                 key={tour.id}
+                data={tour}
               />
             );
           })}

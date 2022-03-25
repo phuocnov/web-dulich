@@ -51,7 +51,7 @@ const App: React.FC = () => {
             <Route path="/signup" exact={true}>
               <SignupPage/>
             </Route>
-            <Route path="/details/:id">
+            <Route path="/detail/:id" exact={true}>
               <DetailPage></DetailPage>
             </Route>
             <Route path="/admin-site">
