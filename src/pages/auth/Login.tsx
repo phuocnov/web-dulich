@@ -65,9 +65,11 @@ const Login = () => {
       <IonPage>
 
         <form
+          className="form"
           onSubmit={handleSubmit((data: any) => {
-            login(data)
-            if(store.getState().auth.isLogin === true) router.push("/")
+            login(data).then(()=>{
+              if(store.getState().auth.isLogin === true) router.push("/page")
+            })
           })}
         >
           <IonLabel>Username or email</IonLabel>

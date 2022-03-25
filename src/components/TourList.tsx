@@ -1,5 +1,5 @@
 import {
-  useIonRouter,
+  IonButton,
 } from "@ionic/react";
 
 interface CardProps {
@@ -12,7 +12,6 @@ interface CardProps {
     cost: number;
   }
   const TourList = (props: CardProps) => {
-    const router = useIonRouter();
     
     return (
       
@@ -22,8 +21,8 @@ interface CardProps {
             <td>{props.startDate}</td>
             <td>{props.endDate}</td>
             <td>{props.cost}</td>
-            <td><a href="#" className="delete_tour">Xóa</a></td>
-            <td><a href="#" className="edit_tour">sửa</a></td>
+            <td><IonButton className="delete_tour" color="danger">Xóa</IonButton></td>
+            <td><IonButton className="edit_tour" color="warning">sửa</IonButton></td>
         </tr>
       
     );

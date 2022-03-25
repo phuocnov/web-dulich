@@ -1,76 +1,91 @@
 import {
-    IonContent,
-    useIonRouter,
+  IonBackButton,
+  IonBadge,
+  IonButton,
+  IonCol,
+  IonContent,
+  IonGrid,
+  IonHeader,
+  IonIcon,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonMenu,
+  IonMenuButton,
+  IonMenuToggle,
+  IonModal,
+  IonPage,
+  IonRouterOutlet,
+  IonRow,
+  IonTab,
+  IonTabBar,
+  IonTabButton,
+  IonTabs,
+  IonText,
+  IonTitle,
+  IonToolbar,
+  useIonRouter,
 } from "@ionic/react";
-import './AdminSite.css';
+import "./AdminSite.css";
 import { tourApi } from "../api";
 import { useEffect, useState } from "react";
 import TourList from "../components/TourList";
+import CreateTour from "../components/admin-site/CreateTour";
+import { Route } from "react-router";
+import TabRenderSwitch from "../components/admin-site/TabRenderSwitch";
+import { calendar, personCircle, map, informationCircle } from "ionicons/icons";
 
+const tabList = [
+  {
+    id: 1,
+    name: "Account",
+  },
+  {
+    id: 2,
+    name: "Tour",
+  },
+  {
+    id: 3,
+    name: "Booking",
+  },
+];
 
 const AdminSite = () => {
-    const router = useIonRouter();
-    const [tours, setTours] = useState([]);
-    async function getTour() {
-        try {
-          const data: any = await tourApi.getTours();
-          setTours(data);
-        } catch (error) {
-          throw error;
-        }
-      }
-    useEffect(() => {
-        const listAPI = [getTour()];
-        async function fetchAPI() {
-          await Promise.all(listAPI);
-        }
-        fetchAPI();
-      }, []);
-      
-    return(
-        <div className="page_AdminSite">
-            <div className="AdminSite_navbar">
-                <ul className="navbar_list">
-                    <li className="navbar_list--items">
-                        Tour List
-                    </li>
-                </ul>
-            </div>
-            <div className="AdminSite_container">
-                <button className="btn_add_tour">Thêm Tour</button>
-                <table>
-                    <tr>
-                        <th>STT</th>
-                        <th>Tour</th>
-                        <th>Ngày Đi</th>
-                        <th>Ngày Về</th>
-                        <th>Giá Tiền</th>
-                    </tr>
-                    
-                    
-                        {tours.map((tour: any,index: number) => {
-                        // console.log(tour);
-                        
-                        return (
-                            <TourList
-                            i = {index}
-                            id={tour.id}
-                            name={tour.name}
-                            tour={tour.tour}
-                            startDate={tour.startDate}
-                            endDate={tour.endDate}
-                            cost={tour.cost}
-                            key={tour.id}
-                            />
-                        );
-                        })}
-                    
-                   
-                    
-                    
-                </table>
-            </div>
-        </div>
-    );
+  // State
+  const [tab, setTab] = useState(1);
+
+  return (
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle className="ion-text-center">Admin Site</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent>
+        <IonGrid>
+          <IonRow>
+            <IonCol size="3">
+              {tabList.map((option) => (
+                <IonButton
+                  color="primary"
+                  size="large"
+                  className="option-button"
+                  onClick={() => {
+                    setTab(option.id);
+                  }}
+                  key={option.id}
+                >
+                  {option.name}
+                </IonButton>
+              ))}
+            </IonCol>
+            <IonCol>
+              <TabRenderSwitch tab={tab}/>
+            </IonCol>
+          </IonRow>
+        </IonGrid>
+      </IonContent>
+    </IonPage>
+  );
 };
 export default AdminSite;

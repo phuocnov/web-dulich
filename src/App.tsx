@@ -40,11 +40,11 @@ const App: React.FC = () => {
           {/* <Menu /> */}
           <IonRouterOutlet id="main">
             <Route path="/" exact={true}>
-              <Page></Page>
+              <Login></Login>
             </Route>
-            {/* <Route path="/page/:name" exact={true}>
+            <Route path="/page" exact={true}>
               <Page/>
-            </Route> */}
+            </Route>
             <Route path="/login" exact={true}>
               <Login/>
             </Route>
@@ -54,7 +54,7 @@ const App: React.FC = () => {
             <Route path="/details/:id">
               <DetailPage></DetailPage>
             </Route>
-            <Route path="/AdminSite">
+            <Route path="/admin-site">
               <AdminSite></AdminSite>
             </Route>
           </IonRouterOutlet>

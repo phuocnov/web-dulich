@@ -6,13 +6,13 @@ import {
   IonCardSubtitle,
   IonCardTitle,
   IonCol,
+  IonContent,
   IonGrid,
   IonImg,
   IonRow,
   IonText,
   useIonRouter,
 } from "@ionic/react";
-import { IonReactRouter } from "@ionic/react-router";
 import "./TourCard.css";
 
 interface CardProps {
@@ -27,9 +27,8 @@ interface CardProps {
 const TourCard = (props: CardProps) => {
   const router = useIonRouter();
   return (
-    <div>
-    <IonCard className="container">
-      <IonImg src="https://dulichviet.com.vn/images/bandidau/CH%C3%82U%20%C3%81/du-lich-indonesia.png" />
+    <IonContent className="container">
+      <IonImg className="card-image" src="https://dulichviet.com.vn/images/bandidau/CH%C3%82U%20%C3%81/du-lich-indonesia.png" />
       <IonCardTitle>{props.name}</IonCardTitle>
       <IonCardSubtitle>{props.tour}</IonCardSubtitle>
       <IonGrid>
@@ -48,8 +47,7 @@ const TourCard = (props: CardProps) => {
             <IonButton onClick={()=>{router.push(`/detail/${props.id}`)}}>Đặt ngay!</IonButton>
         </IonCol>
       </IonGrid>
-    </IonCard>
-    </div>
+    </IonContent>
   );
 };
 
