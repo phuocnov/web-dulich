@@ -48,7 +48,7 @@ const TabAccount = () => {
             </IonCol>
           </IonRow>
           {accountData.map((account: any) => (
-            <IonRow className="">
+            <IonRow className="" key={account.id}>
               <IonCol size="2">
                 <IonText>{account.id}</IonText>
               </IonCol>
@@ -57,9 +57,6 @@ const TabAccount = () => {
               </IonCol>
               <IonCol size="4">
                 <IonText>{account.email}</IonText>
-              </IonCol>
-              <IonCol size="2">
-                <IonButton color="danger">Lock</IonButton>
               </IonCol>
             </IonRow>
           ))}

@@ -63,7 +63,7 @@ const CreateTour = () => {
       <IonLabel>date end</IonLabel>
       <IonInput type="date" {...register("endDate")} />
       <IonLabel>short description</IonLabel>
-      <IonInput type="date" {...register("shortDescription")} />
+      <IonInput type="text" {...register("shortDescription")} />
       
       <IonItemDivider/>
       <IonLabel>detail schedule</IonLabel>

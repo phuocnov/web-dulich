@@ -18,6 +18,9 @@ import "./TabAccount.css";
 
 const TabTour = () => {
   const [tourData, setTourData] = useState([]);
+  const [showDetailModal, setShowDetailModal] = useState(false)
+  const [detailId, setDetailId] = useState(0)
+
 
   async function getAccountData() {
     try {
@@ -41,8 +44,9 @@ const TabTour = () => {
       <IonModal trigger="create-trigger">
         <CreateTour />
       </IonModal>
-      <IonModal trigger="detail-trigger">
-        <DetailTour></DetailTour>
+      <IonModal isOpen={showDetailModal}>
+        <DetailTour id={detailId}></DetailTour>
+        <IonButton onClick={()=>{setShowDetailModal(false)}}>Close</IonButton>
       </IonModal>
       <IonButton id="create-trigger">Create tour</IonButton>
       <IonList>
@@ -68,25 +72,28 @@ const TabTour = () => {
             </IonCol>
           </IonRow>
 
-          {tourData.map((account: any) => (
-            <IonRow className="">
+          {tourData.map((tour: any) => (
+            <IonRow className=""  key={tour.id}>
               <IonCol size="1">
-                <IonText>{account.id}</IonText>
+                <IonText>{tour.id}</IonText>
               </IonCol>
               <IonCol size="3">
-                <IonText>{account.name}</IonText>
+                <IonText>{tour.name}</IonText>
               </IonCol>
               <IonCol size="3">
-                <IonText>{account.tour}</IonText>
+                <IonText>{tour.tour}</IonText>
               </IonCol>
               <IonCol size="2">
-                <IonText>{account.startDate}</IonText>
+                <IonText>{tour.startDate}</IonText>
               </IonCol>
               <IonCol size="2">
-                <IonText>{account.endDate}</IonText>
+                <IonText>{tour.endDate}</IonText>
               </IonCol>
               <IonCol size="1">
-                <IonButton id="detail-trigger">Adjust</IonButton>
+                <IonButton onClick={()=>{
+                  setDetailId(tour.id)
+                  setShowDetailModal(true)
+                }}>Details</IonButton>
               </IonCol>
             </IonRow>
           ))}

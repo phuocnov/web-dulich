@@ -18,12 +18,12 @@ const API_CONSTANTS = {
             GET: 'customer'
         },
         TOUR: {
-            CREATE: 'tour',
+            CREATE: 'tour/  create_tour',
             ADJUST: 'tour/adjust',
-            DELETE: 'tour/delete'
         },
         BOOKING: {
-            GET: 'booking'
+            GET: 'booking',
+            GET_BYID:(id: number) => `booking/${id}`
         }
     }
 }
